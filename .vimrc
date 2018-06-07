@@ -37,7 +37,12 @@ let g:ycm_filetype_specific_completion_to_disable = { 'cpp': 0 }
 let g:clang_format#enable_fallback_style = 0
 let g:clang_format#command="clang-format-5.0"
 let g:clang_format#auto_format=0
+
 let g:clang_format#auto_format_on_insert_leave = 1
+"Fix problems with this sticking. vim-clang-format enables it from FileType
+"events.
+au BufEnter *.{cc,h} :call clang_format#enable_format_on_insert()
+
 let g:clang_format#style="google"
 
 fun! BufRefresh()
