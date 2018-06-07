@@ -8,7 +8,7 @@ set hidden
 set expandtab
 set autoindent
 set formatoptions=croql
-
+set directory=/tmp
 
 let mapleader = ","
 noremap <leader><ESC> :nohl<CR>
@@ -36,7 +36,8 @@ let g:ycm_filetype_specific_completion_to_disable = { 'cpp': 0 }
 
 let g:clang_format#enable_fallback_style = 0
 let g:clang_format#command="clang-format-5.0"
-let g:clang_format#auto_format=1
+let g:clang_format#auto_format=0
+let g:clang_format#auto_format_on_insert_leave = 1
 let g:clang_format#style="google"
 
 fun! BufRefresh()
@@ -47,3 +48,9 @@ endfun
 
 ""nmap <C-F4> :bufdo bd<CR>
 nmap <C-F5> :call BufRefresh()<CR>
+
+function! FileTime()
+  let msg=strftime("%m/%d %H:%M:%S",getftime(expand("%")))
+  return msg
+endfunction
+let g:airline_section_y='%{FileTime()}'
