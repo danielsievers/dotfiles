@@ -5,6 +5,7 @@ set number
 set hlsearch
 set hidden
 
+set autoread
 set expandtab
 set autoindent
 set formatoptions=croql
@@ -18,6 +19,7 @@ noremap <F4> :bd<CR>
 "noremap <F6> :bnext<CR>
 noremap <F5> <C-O>
 noremap <F6> <C-I>
+noremap <F12> :bufdo bd<CR>
 
 noremap <C-B> :CtrlPBuffer<CR>
 noremap <C-F> :ClangFormatAutoToggle<CR>
@@ -59,3 +61,5 @@ function! FileTime()
   return msg
 endfunction
 let g:airline_section_y='%{FileTime()}'
+"Don't show FileType
+let g:airline_section_x=''
