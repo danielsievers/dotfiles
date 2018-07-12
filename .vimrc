@@ -10,6 +10,7 @@ set expandtab
 set autoindent
 set formatoptions=croql
 set directory=/tmp
+set scrolloff=20
 
 let mapleader = ","
 noremap <leader><ESC> :nohl<CR>
